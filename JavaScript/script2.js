@@ -1,22 +1,23 @@
 function alphaSort()
 {
     var s = document.getElementById("inp").value;
-    console.log("s = " + s);
+    var s_split = s.split('');
+    var len = s_split.length;
     
-    for (i = 0; i < s.length - 1; i++)
+    for (i = 0; i < len - 1; i++)
     {
-        for (j = 0; j < s.length - i - 1; j++)
+        for (j = 0; j < len - i - 1; j++)
         {
-            // console.log(s[j] + " " + s[j+1] + " " + s[j]>s[j+1]);
-            if (s[j] > s[j+1])
+            if (s_split[j] > s_split[j+1])
             {
-                var temp = s[j];
-                s[j] = s[j+1];
-                s[j+1] = temp;
+                var temp = s_split[j];
+                s_split[j] = s_split[j+1];
+                s_split[j+1] = temp;
             }
         }
     }
 
+    s = s_split.join('');
     document.getElementById("result").innerHTML = s;
     console.log("final s = " + s);
 }
